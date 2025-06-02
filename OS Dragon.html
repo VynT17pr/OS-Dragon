@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.4.1/dist/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+    <style>
+      body { margin: 0; overflow: hidden; }
+      #container { width: 100vw; height: 100vh; }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <a-scene
+        mindar-image="imageTargetSrc: targets.mind"
+        embedded
+        color-space="sRGB"
+        renderer="colorManagement: true, physicallyCorrectLights">
+        
+        <a-assets>
+          <img id="overlay" src="mr_os_tattoo.png" />
+        </a-assets>
+
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+        <a-entity mindar-image-target="targetIndex: 0">
+          <a-image src="#overlay" position="0 0 0" rotation="0 0 0" width="1" height="0.7"></a-image>
+        </a-entity>
+
+      </a-scene>
+    </div>
+  </body>
+</html>
